@@ -1,3 +1,14 @@
-import { createConnection } from 'typeorm';
+import { createConnection, getConnectionOptions } from "typeorm";
 
-(async () => await createConnection())();
+export default async () => {
+  const defaultOptions = await getConnectionOptions();
+
+  if (process.env.NODE_ENV === "test") {
+    Object.assign(defaultOptions, {
+      host: "localhost",
+      database: "fin_api",
+    });
+  }
+
+  return createConnection(defaultOptions);
+};

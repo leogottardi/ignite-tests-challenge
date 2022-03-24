@@ -7,7 +7,7 @@ import { statementRouter } from './statements.routes';
 
 const router = Router();
 
-router.use('/', authenticationRouter);
+router.use(authenticationRouter);
 router.use('/users', usersRouter);
 router.use('/profile', userProfileRouter);
 
