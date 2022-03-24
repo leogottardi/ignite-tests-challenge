@@ -10,6 +10,7 @@ describe("Show the User Profile", () => {
     usersRepository = new InMemoryUsersRepository();
     showUserProfileUseCase = new ShowUserProfileUseCase(usersRepository);
   });
+
   it("should be able to show the user profile", async () => {
     const passwordHash = await hash("123456", 8);
 
